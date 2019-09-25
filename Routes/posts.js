@@ -20,5 +20,10 @@ router.get("/:id", async (req, res) => {
   } catch (error) { next(error) }
 });
 
+router.get("/add", (req, res) => {
+    res.send(addPost());
+  });
+
+  
 module.exports = router;
 
