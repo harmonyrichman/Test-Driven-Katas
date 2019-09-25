@@ -7,23 +7,24 @@ const postDetails = require("../views/postDetails");
 
 router.get("/", async (req, res, next) => {
   try {
-    const data = await client.query(/*Omitted for brevity*/);
+    const data = await client.query('SELECT * FROM users INNER JOIN posts ON posts.userid =users.id');
     res.send(postList(data.rows));
   } catch (error) { next(error) }
 });
 
 router.get("/:id", async (req, res) => {
   try {
-    const data = await client.query(/*Omitted for brevity*/);
+    const data = await client.query('SELECT * FROM users INNER JOIN posts ON posts.userid =users.id');
     const post = data.rows[0];
     res.send(postDetails(post));
   } catch (error) { next(error) }
 });
 
 router.get("/add", (req, res) => {
+    console.log('add');
     res.send(addPost());
   });
 
-  
+
 module.exports = router;
 

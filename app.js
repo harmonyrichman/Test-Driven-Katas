@@ -4,7 +4,7 @@ const client = require("./db");
 const postList = require("./views/postList");
 const postDetails = require("./views/postDetails");
 const routes = require('./routes/posts')
-
+const addPost = require('./views/addPost')
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.use('/posts', routes);
 //   try {
 //     const data = await client.query(baseQuery + "WHERE posts.id = $1", [req.params.id]);
 //     const post = data.rows[0];
-//     res.send(postDetails(post));
+//     res.send(postDetails(p"ost));
 //   } catch (error) { next(error) }
 // });
 
